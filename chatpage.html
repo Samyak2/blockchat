@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="topbar.css">
+<style>
+
+html, body {
+        height: 100%;
+        margin: 0;
+    }
+
+#maincontainer {
+    display: flex;
+    flex-flow: column wrap;
+    overflow: hidden;
+    height: 100%;
+}
+
+#topbar {
+    
+}
+
+    #main {
+        /* display: table; */
+/*         height: 100%; */
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        overflow: hidden;
+    }
+
+    div.column {
+        /* display: table-cell; */
+        /*! overflow: hidden; */
+    }
+
+    div.left {
+        flex: 1 0 30%;
+        background-color: #aaaaaa;
+        overflow: auto;
+    }
+
+    div.right {
+        flex: 1 0 70%;
+        background-color: #dddddd;
+    }
+
+    div.chat {
+        background-color: #bbbbbb;
+        overflow: auto;
+        margin: 5px 5px 5px 5px;
+    }
+
+    img.profpic {
+        display: inline-block;
+        /* float: left; */
+        vertical-align: middle;
+        height: 50px;
+        width: 50px;
+        padding: 5px 5px 5px 5px;
+    }
+
+    div.personnamerecent {
+        /* float: left; */
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+    }
+
+    p.person {
+        margin: 0 0 0 5px;
+    }
+
+    p.name {
+        font-weight: bold;
+    }
+
+</style>
+<meta charset="utf-8"/>
+
+</head>
+<body>
+    <div id="maincontainer">
+        <ul id="topbar">
+            <li id="topbartitle">
+                <a>Blockchat</a>
+            </li>
+            <li id="topbarlink">
+                    <a>Username</a>
+            </li>
+            <li id="topbarlink">
+                    <a>About Us</a>
+            </li>
+            <li id="topbarlink">
+                    <a class="active" href="chatpage.html">Chat</a>
+            </li>
+            <li id="topbarlink">
+                <a>Transfer</a>
+            </li>
+        </ul>
+
+
+        <div id="main">
+            <div class="column left">
+                <button onclick="addchat()" value="AddChat">Add Chat</button>
+                <div class="chat">
+                    <img class="profpic" src="person.png" />
+                    <div class="personnamerecent">
+                        <p class="person name">Person 1</p>
+                        <p class="person recentmessage">Hello!</p>
+                    </div>
+                </div>
+                <div class="chat">
+                    <img class="profpic" src="person.png" />
+                    <div class="personnamerecent">
+                        <p class="person name">Person 2</p>
+                        <p class="person recentmessage">How are you?</p>
+                    </div>
+                </div>
+                <div class="chat">
+                        <img class="profpic" src="person.png" />
+                        <div class="personnamerecent">
+                            <p class="person name">Person 3</p>
+                            <p class="person recentmessage">Hmmmmmmmmmmmmmmmmm</p>
+                        </div>
+                </div>
+            </div>
+            <div class="column right"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur aliquam a libero rem aut doloremque dolorem, impedit velit rerum mollitia laudantium consectetur quaerat blanditiis minus quisquam accusamus, voluptatum quo fugit?</p></div>
+        </div>
+    </div>
+    <script>
+        topbar = document.getElementById("topbar");
+        var contentPlacement = topbar.getBoundingClientRect().top + topbar.offsetHeight;
+        document.getElementById("main").style["margin-top"] = contentPlacement + "px";
+    </script>
+
+    <script>
+        function addchat()
+        {
+            person = new Object();
+            person.name = "Person X";//prompt("Enter person name:");
+            person.recentMessage = "Yo";//prompt("Enter recent message:");
+            left_column = document.getElementsByClassName("column left")[0];
+            chat = document.createElement("div");
+            chat.className = "chat";
+            chat_img = document.createElement("img");
+            chat_img.className = "profpic";
+            chat_img.src = "person.png";
+            chat.appendChild(chat_img);
+            chat_info = document.createElement("div");
+            chat_info.className = "personnamerecent";
+            chat_info.innerHTML += "<p class=\"person name\">" + person.name + "</p> <p class=\"person recentmessage\">" + person.recentMessage + "</p>";
+            chat.appendChild(chat_info);
+            // chat.innerHTML += "<img class=\"profpic\" src=\"person.png\" />";
+            // chat.innerHTML += "<div class=\"personnamerecent\">" \
+            // "<p class=\"person name\">" + person.name + "</p>" + \
+            // <p class=\"person recentmessage\">" + person.recentMessage + "</p>";
+            // </div>";
+            left_column.appendChild(chat);
+        }
+    </script>
+</body>
+</html>
