@@ -2,36 +2,26 @@
 <html>
 <head>
 <link rel="stylesheet" href="topbar.css">
+<meta charset="utf-8"/>
 <style>
 
-html, body {
+    html, body {
         height: 100%;
         margin: 0;
     }
 
-#maincontainer {
-    display: flex;
-    flex-flow: column wrap;
-    overflow: hidden;
-    height: 100%;
-}
-
-#topbar {
-    
-}
+    #maincontainer {
+        display: flex;
+        flex-flow: column wrap;
+        overflow: hidden;
+        height: 100%;
+    }
 
     #main {
-        /* display: table; */
-/*         height: 100%; */
         display: flex;
         flex-direction: row;
         flex: 1;
         overflow: hidden;
-    }
-
-    div.column {
-        /* display: table-cell; */
-        /*! overflow: hidden; */
     }
 
     div.left {
@@ -43,6 +33,9 @@ html, body {
     div.right {
         flex: 1 0 70%;
         background-color: #dddddd;
+        display: flex;
+        flex-flow: column nowrap;
+        overflow: hidden;
     }
 
     div.chat {
@@ -75,8 +68,61 @@ html, body {
         font-weight: bold;
     }
 
+    #chattop {
+        border: 1px solid #222222;
+        margin: 5px 10px;
+        /* overflow: hidden; */
+        /* flex: 0 0 10%; */
+    }
+
+    #profpic {
+        height: 50px;
+        width: 50px;
+        display: inline-block;
+        vertical-align: middle;
+        padding: 5px 5px 5px 5px;
+    }
+
+    #personname {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    #chatmessages {
+        flex: 1 0 10%;
+        margin: 10px;
+        overflow: auto;
+    }
+
+    div.message {
+        border: 1px solid #333333;
+        margin: 5px;
+        padding: 5px;
+        border-radius: 10px;
+    }
+
+    div.received {
+        background-color: lightblue;
+    }
+
+    div.sent {
+        background-color: lightpink;
+    }
+
+    #messageinput {
+        /* flex: 0 0 5%; */
+        margin: 5px 10px;
+        overflow: hidden;
+    }
+
+    #msginputbox {
+        display: inline-block;
+    }
+
+    #msgsend {
+        display: inline-block;
+    }
 </style>
-<meta charset="utf-8"/>
 
 </head>
 <body>
@@ -125,7 +171,25 @@ html, body {
                         </div>
                 </div>
             </div>
-            <div class="column right"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur aliquam a libero rem aut doloremque dolorem, impedit velit rerum mollitia laudantium consectetur quaerat blanditiis minus quisquam accusamus, voluptatum quo fugit?</p></div>
+            <div class="column right">
+                <div id="chattop">
+                    <img id="profpic" src="person.png" />
+                    <p id="personname">Person 2</p>
+
+                </div>
+                <div id="chatmessages">
+                    <div class="message received">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus fuga vero cumque ducimus architecto obcaecati enim accusamus cum, provident dignissimos dolorum eum tempore aliquam nisi aspernatur adipisci magni modi animi?
+                    </div>
+                    <div class="message sent">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur officia quaerat libero voluptates ipsam sed quo id, eaque repellat iure provident quibusdam rerum aliquid. Accusamus eveniet corrupti sint minus in?
+                    </div>
+                </div>
+                <div id="messageinput">
+                    <input type="text" id="msginputbox">
+                    <input onclick="addMsg()" type="submit" value="Send" id="msgsend">
+                </div>
+            </div>
         </div>
     </div>
     <script>
@@ -157,6 +221,15 @@ html, body {
             // <p class=\"person recentmessage\">" + person.recentMessage + "</p>";
             // </div>";
             left_column.appendChild(chat);
+        }
+
+        function addMsg() {
+            inputbox = document.getElementById("msginputbox");
+            newMsg = document.createElement("div");
+            newMsg.className = "message received";
+            newMsg.textContent = inputbox.value;
+            chatmessages = document.getElementById("chatmessages");
+            chatmessages.appendChild(newMsg);
         }
     </script>
 </body>
