@@ -99,28 +99,42 @@
         margin: 5px;
         padding: 5px;
         border-radius: 10px;
+        max-width: 60%;
+        display: flex;
+        flex: 1 1 auto;
+        clear: both;
     }
 
     div.received {
         background-color: lightblue;
+        text-align: left;
+        float: left;
     }
 
     div.sent {
         background-color: lightpink;
+        float: right;
     }
 
     #messageinput {
-        /* flex: 0 0 5%; */
-        margin: 5px 10px;
+        width: 100%;
+        height: 4%;
+        margin: 5px 5px;
         overflow: hidden;
+        vertical-align: middle;
     }
 
     #msginputbox {
         display: inline-block;
+        width: 75%;
+        height: 100%;
     }
 
     #msgsend {
         display: inline-block;
+        width: 22%;
+        height: 100%;
+        vertical-align: top;
     }
 </style>
 
@@ -185,10 +199,12 @@
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur officia quaerat libero voluptates ipsam sed quo id, eaque repellat iure provident quibusdam rerum aliquid. Accusamus eveniet corrupti sint minus in?
                     </div>
                 </div>
-                <div id="messageinput">
+            
+                <form id="messageinput" method="POST" onsubmit="return addMsg()">
                     <input type="text" id="msginputbox">
-                    <input onclick="addMsg()" type="submit" value="Send" id="msgsend">
-                </div>
+                    <input type="submit" value="Send" id="msgsend">
+                </form>
+                
             </div>
         </div>
     </div>
@@ -226,10 +242,23 @@
         function addMsg() {
             inputbox = document.getElementById("msginputbox");
             newMsg = document.createElement("div");
+            newMsg.className = "message sent";
+            newMsg.textContent = inputbox.value;
+            chatmessages = document.getElementById("chatmessages");
+            chatmessages.appendChild(newMsg);
+            chatmessages.scrollTop = chatmessages.scrollHeight;
+            return false;
+        }
+
+        function receiveMsg() {
+            inputbox = document.getElementById("msginputbox");
+            newMsg = document.createElement("div");
             newMsg.className = "message received";
             newMsg.textContent = inputbox.value;
             chatmessages = document.getElementById("chatmessages");
             chatmessages.appendChild(newMsg);
+            chatmessages.scrollTop = chatmessages.scrollHeight;
+            return false;
         }
     </script>
 </body>
