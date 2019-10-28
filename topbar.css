@@ -6,7 +6,7 @@ body {
   list-style-type: none;
   margin: 0;
   padding: 0.012em;
-  background-color: #4a008a;
+  background-color: darkblue;
   overflow: hidden;
   position: fixed;
   top: 0;
@@ -24,7 +24,7 @@ body {
   padding: 8px 12px;
   color: #ffff;
   text-align: center;
-  background-color: #4a008a;
+  background-color: darkblue;
   text-decoration: none;
 }
 
@@ -33,11 +33,14 @@ body {
 }
 
 #topbar li a.active {
-  background-color: #00ba49;
+  background-color: darkblue;
   border-bottom: 1px solid #fff;
 }
 
 #topbar li a:hover {
   background-color: #6311aa;
   border-bottom: 1px solid #fff;
+}
+a:hover {
+  color: darkgray;
 }
