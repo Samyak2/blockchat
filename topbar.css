@@ -38,3 +38,6 @@ body {
 #topbar li a:hover {
     background-color: #777777;
 }
+.w-40{
+    width: 40% !important;
+}
