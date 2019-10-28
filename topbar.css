@@ -2,11 +2,12 @@ body {
     margin-left: 0;
     margin-right: 0;
 }
+
 #topbar {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background-color: #eeeeee;
+    background-color: #292929;
     overflow: hidden;
     position: fixed;
     top: 0;
@@ -19,11 +20,12 @@ body {
 }
 
 #topbar li a {
+    font-weight: bold;
     display: block;
     padding: 8px 12px;
-    color: #222222;
+    color: #ffae00;
     text-align: center;
-    background-color: #dddddd;
+    background-color: #292929;
     text-decoration: none;
 }
 
@@ -32,9 +34,10 @@ body {
 }
 
 #topbar li a.active {
-    background-color: #aaaaaa;
+    color: black;
+    background-color: #ffae00;
 }
 
 #topbar li a:hover {
-    background-color: #777777;
+    background-color: #000000;
 }
