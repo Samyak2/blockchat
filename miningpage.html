@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Blockchat Mining Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="topbar.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        function addtransaction(which, sender, receiver, value, message) {
+            var table_selected = document.getElementById(which);
+            var row = table_selected.insertRow(-1);
+            var data = row.insertCell(-1);
+            data.textContent = sender;
+            var data = row.insertCell(-1);
+            data.textContent = receiver;
+            var data = row.insertCell(-1);
+            data.textContent = value;
+            var data = row.insertCell(-1);
+            data.textContent = message;
+        }
+    </script>
+</head>
+<body>
+        <ul id="topbar">
+                <li id="topbartitle">
+                    <a>Blockchat</a>
+                </li>
+                <li id="topbarlink">
+                        <a href="profilepage.html">Username</a>
+                </li>
+                <li id="topbarlink">
+                        <a>About Us</a>
+                </li>
+                <li id="topbarlink">
+                        <a href="chatpage.html">Chat</a>
+                </li>
+                <li id="topbarlink">
+                    <a>Transfer</a>
+                </li>
+                <li id="topbarlink">
+                        <a class="active" href="miningpage.html">Mining</a>
+                </li>
+                <li id="topbarlink">
+                        <a href="blockchain.html">Blockchain</a>
+                </li>
+            </ul>
+<div class="container" id="main">
+  <h2>Transactions to be mined</h2>
+  <table class="table table-striped" id="tobemined">
+    <thead>
+      <tr>
+        <th>Sender</th>
+        <th>Receiver</th>
+        <th>Value</th>
+        <th>Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>12345678</td>
+        <td>98765432</td>
+        <td>2</td>
+        <td>Payment</td>
+      </tr>
+      <tr>
+        <td>98765432</td>
+        <td>12345678</td>
+        <td>0.000001</td>
+        <td>Thanks</td>
+      </tr>
+      <tr>
+        <td>45678912</td>
+        <td>72398462</td>
+        <td>10</td>
+        <td>Payment</td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <h2>Transactions being mined</h2>
+  <table class="table table-striped" id="beingmined">
+    <thead>
+      <tr>
+        <th>Sender</th>
+        <th>Receiver</th>
+        <th>Value</th>
+        <th>Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>98765432</td>
+        <td>12345678</td>
+        <td>0.000001</td>
+        <td>Please pay me</td>
+      </tr>
+      <tr>
+        <td>98765432</td>
+        <td>12345678</td>
+        <td>0.000001</td>
+        <td>Thanks</td>
+      </tr>
+      <tr>
+        <td>45678912</td>
+        <td>72398462</td>
+        <td>10</td>
+        <td>Payment</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+        topbar = document.getElementById("topbar");
+        var contentPlacement = topbar.getBoundingClientRect().top + topbar.offsetHeight + 10;
+        document.getElementById("main").style["margin-top"] = contentPlacement + "px";
+</script>
+</body>
+</html>

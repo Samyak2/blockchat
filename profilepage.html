@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="topbar.css">
+<meta charset="utf-8"/>
+<style>
+
+
+html, body {
+        height: 100%;
+        margin: 0;
+    }
+
+    #maincontainer {
+        display: flex;
+        flex-flow: column wrap;
+        overflow-x: hidden;
+        height: 100%;
+    }
+
+    #profileinfo {
+        margin: 25px;
+        padding: 5px;
+    }
+
+    img#profpic {
+        display: inline-block;
+        vertical-align: middle;
+        height: 100px;
+        width: 100px;
+        margin: 5px 5px 5px 5px;
+        padding: 1px 1px;
+        border-radius: 50%;
+        border: 2px solid #333333;
+        /* vertical-align: middle; */
+    }
+
+    div#namecoins {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    div#username {
+        display: inline-block;
+        font-size: larger;
+        margin: 5px;
+        font-size: xx-large;
+        /* vertical-align: middle; */
+    }
+
+    div#coins {
+        /* display: inline-block; */
+        font-size: large;
+        font-weight: bold;
+        padding: 5px;
+    }
+
+    span#numcoins {
+        font-weight: normal;
+    }
+
+    div#profkeys h3, #showkeys {
+        display: inline-block;
+        padding-right: 1em;
+    }
+
+    div#profkeys p {
+        font-weight: bold;
+        padding-left: 1em;
+    }
+
+    span#pubkey, span#prikey {
+        font-weight: normal;
+    }
+
+    #infoactions {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #profileinfo {
+        flex: 1 0 50%;
+    }
+
+    #accountactions {
+        flex: 1 0 50%;
+        font-size: larger;
+        padding-left: 10px;
+        border-left: 1px solid;
+        line-height: 50px;
+    }
+
+    #chatkeys {
+        padding: 20px 20px;
+        border-top: 1px solid;
+    }
+
+    #keytable {
+        width: 100%;
+        text-align: center;
+    }
+
+    #keytable, #keytable th, #keytable td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 10px;
+    }
+
+    #keytable th {
+        background-color: aliceblue;
+    }
+
+    #keytable td {
+        background-color: lightgoldenrodyellow;
+    }
+
+    #caption {
+        font-size: larger;
+    }
+</style>
+
+<script>
+    var pubkey = "abc";
+    var prikey = "def";
+</script>
+
+</head>
+<body>
+    <div id="maincontainer">
+        <ul id="topbar">
+            <li id="topbartitle">
+                <a>Blockchat</a>
+            </li>
+            <li id="topbarlink">
+                    <a class="active" href="profilepage.html">Username</a>
+            </li>
+            <li id="topbarlink">
+                    <a>About Us</a>
+            </li>
+            <li id="topbarlink">
+                    <a href="chatpage.html">Chat</a>
+            </li>
+            <li id="topbarlink">
+                <a>Transfer</a>
+            </li>
+        </ul>
+
+        <div id="main">
+            <div id="infoactions">
+                <div id="profileinfo">
+                    <div>
+                        
+                        <img id="profpic" src="person.png" />
+                        
+                        <div id="namecoins">
+                            <div id="username">
+                                Username
+                            </div>
+                            <div id="coins">
+                                Coins: <span id="numcoins">3.45</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="profkeys">
+                        <h3>Keys</h3> <button id="showkeys" onclick="showkeys()">Show Keys</button>
+                        <p>Public Key: <span id="pubkey">************</span></p>
+                        <p>Private Key: <span id="prikey">************</span></p>
+                    </div>
+                </div>
+
+                <div id="accountactions">
+                    <h3>Account Actions</h3>
+
+                    <ul>
+                        <li>Want to earn more coins? <a href="miningpage.html">Help by mining!</a></li>
+                        <li><a href="passwordreset.html">Change your password</a></li>
+                        <li><a style="color: red;" href="deletepage.html">Delete or Deactivate Account</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="chatkeys">
+                <p id="caption">Per chat keys:</p>
+                <table id="keytable">
+                    <tr>
+                        <th>Name</th>
+                        <th>Key</th>
+                    </tr>
+                    <tr>
+                        <td>Person 1</td>
+                        <td>Hmmmmmmm</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        topbar = document.getElementById("topbar");
+        var contentPlacement = topbar.getBoundingClientRect().top + topbar.offsetHeight;
+        document.getElementById("main").style["margin-top"] = contentPlacement + "px";
+    </script>
+
+    <script>
+        function addchatkey(name, key) {
+            var keytable = document.getElementById("keytable");
+            var row = keytable.insertRow(-1);
+            var data = row.insertCell(-1);
+            data.textContent = name;
+            var data = row.insertCell(-1);
+            data.textContent = key;
+        }
+    </script>
+
+    <script>
+        function showkeys() {
+            pubkeyel = document.getElementById("pubkey");
+            prikeyel = document.getElementById("prikey");
+            pubkeyel.textContent = pubkey;
+            prikeyel.textContent = prikey;
+        }
+    </script>
+</body>
+</html>

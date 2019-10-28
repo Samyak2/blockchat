@@ -31,10 +31,10 @@ body {
     float: right;
 }
 
-#topbar li a:hover {
-    background-color: #777777;
-}
-
 #topbar li a.active {
     background-color: #aaaaaa;
+}
+
+#topbar li a:hover {
+    background-color: #777777;
 }
