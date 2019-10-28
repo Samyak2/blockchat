@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	  <title>Delete Page</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="topbar.css">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	  <link rel="stylesheet" type="text/css " href="topbar.css">
+	  <link rel="stylesheet" type="text/css " href="deletepage.css">
+</head>
+<body>
+	<ul id="topbar">
+          <li id="topbartitle">
+              <a>Blockchat</a>
+          </li>
+          <li id="topbarlink">
+                  <a href="profilepage.html">Username</a>
+          </li>
+          <li id="topbarlink">
+                  <a>About Us</a>
+          </li>
+          <li id="topbarlink">
+                  <a href="chatpage.html">Chat</a>
+          </li>
+          <li id="topbarlink">
+              <a>Transfer</a>
+          </li>
+          <li id="topbarlink">
+                  <a href="miningpage.html">Mining</a>
+          </li>
+          <li id="topbarlink">
+                  <a class="active" href="blockchain.html">Blockchain</a>
+          </li>
+    </ul>
+    <div class = "container mt-5">
+    	<div>
+    		<h3 style="color: red">Delete or Deactivate Account</h3>
+    		<p>Please tell us why you want to perform this action.</p>
+    		<textarea name="reasen" placeholder="Enter your answer here..." width= "40%"></textarea>
+    	</div>
+    	<div class ="flex-container mt-5">
+    		<div class="col-lg-5">
+    			<button type="submit" class="button"> <a href="#">Deactivate Account</a></button>
+    			<p class="mt-1">Doing so will prevent others from sending your message and you will need to confirm your e-mail to reactivate.</p>
+    		</div>
+    		<div class="col-lg-5">
+    			<button type="submit" class="button" > <a href="#" style="color: red">Delete Account</a></button>
+    			<p style="color: red" class="mt-1">WARNING! This will delete all data associated with your account, including coins and messages. This is irreversible.</p>
+    		</div>    		
+    	</div>
+    	
+    </div>
+</body>
+</html>
