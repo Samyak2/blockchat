@@ -1,17 +1,18 @@
 body {
     margin-left: 0;
     margin-right: 0;
+	background-image: linear-gradient(gray, #c9c9c9);
 }
 #topbar {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background-color: #eeeeee;
+    background-color: black;
     overflow: hidden;
     position: fixed;
     top: 0;
     width: 100%;
-    border: 1px solid #5f5f5f;
+    border: 1px solid black;
 }
 
 #topbartitle {
@@ -21,9 +22,9 @@ body {
 #topbar li a {
     display: block;
     padding: 8px 12px;
-    color: #222222;
+    color: #ffd4d6;
     text-align: center;
-    background-color: #dddddd;
+    background-color: black;
     text-decoration: none;
 }
 
@@ -32,9 +33,14 @@ body {
 }
 
 #topbar li a.active {
-    background-color: #aaaaaa;
+    background-color: black;
 }
 
 #topbar li a:hover {
-    background-color: #777777;
+    background-color: #383838;
+
+}
+*{
+	font-family : 'Muli' , sans-serif;
+	font-size : 25px ;
 }
