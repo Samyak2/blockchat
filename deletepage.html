@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Blockchat Mining Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="topbar.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+    <body>
+        <ul id="topbar">
+            <li id="topbartitle">
+                <a>Blockchat</a>
+            </li>
+            <li id="topbarlink">
+                    <a href="profilepage.html">Username</a>
+            </li>
+            <li id="topbarlink">
+                    <a>About Us</a>
+            </li>
+            <li id="topbarlink">
+                    <a href="chatpage.html">Chat</a>
+            </li>
+            <li id="topbarlink">
+                <a>Transfer</a>
+            </li>
+            <li id="topbarlink">
+                    <a class="active" href="miningpage.html">Mining</a>
+            </li>
+            <li id="topbarlink">
+                    <a href="blockchain.html">Blockchain</a>
+            </li>
+        </ul>
+        <div class="container" id="main">
+            <form>
+                <h1>Delete or deactivate account</h1>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>Please tell us why you want to perform this action</label>
+                        <textarea class="form-control"></textarea>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-warning btn-lg btn-block">Deactivate Account</button>
+                        <div class="alert alert-warning" role="alert">Doing so will prevent others from sending you messages and you will ned to confirm your e-mail to reactivate.</div>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-danger btn-lg btn-block">Delete Account</button>
+                        <div class="alert alert-danger" role="alert">WARNING! This will delete all data associated with your account, including coins and messages. This is irreversible.</div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <script>
+                topbar = document.getElementById("topbar");
+                var contentPlacement = topbar.getBoundingClientRect().top + topbar.offsetHeight + 10;
+                document.getElementById("main").style["margin-top"] = contentPlacement + "px";
+        </script>
+    </body>
+</html>
