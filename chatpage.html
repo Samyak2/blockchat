@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="topbar.css">
-<meta charset="utf-8"/>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="chatpage_files/topbar.css">
+<meta charset="utf-8">
 <style>
 
-    html, body {
+
+html, body {
         height: 100%;
         margin: 0;
     }
@@ -26,22 +27,23 @@
 
     div.left {
         flex: 1 0 30%;
-        background-color: #aaaaaa;
+        background-color: hsla(240, 7.9%, 53.1%, 0.92);
         overflow: auto;
     }
 
     div.right {
         flex: 1 0 70%;
-        background-color: #dddddd;
+        background-color: #ffffff;
         display: flex;
         flex-flow: column nowrap;
         overflow: hidden;
     }
 
     div.chat {
-        background-color: #bbbbbb;
+        background-color: #ffffffd6;
         overflow: auto;
         margin: 5px 5px 5px 5px;
+        border-radius: 10px;
     }
 
     img.profpic {
@@ -50,7 +52,10 @@
         vertical-align: middle;
         height: 50px;
         width: 50px;
-        padding: 5px 5px 5px 5px;
+        padding: 3px 3px 3px 3px;
+        border-radius: 50%;
+        border: 1px solid #222222;
+        margin: 2px;
     }
 
     div.personnamerecent {
@@ -75,6 +80,7 @@
         margin: 5px 10px;
         /* overflow: hidden; */
         /* flex: 0 0 10%; */
+        border-radius: 10px;
     }
 
     #profpic {
@@ -120,24 +126,34 @@
 
     #messageinput {
         width: 100%;
-        height: 4%;
+        height: 30px;
         margin: 5px 5px;
-        overflow: hidden;
+        /*! overflow: hidden; */
         vertical-align: middle;
+        padding-bottom: 5px;
     }
 
     #msginputbox {
         display: inline-block;
-        width: 75%;
-        height: 100%;
+        width: calc(100% - 50px);
+        height: 30px;
+        border-radius: 10px;
     }
 
     #msgsend {
         display: inline-block;
-        width: 22%;
-        height: 100%;
+        width: 32px;
+        height: 32px;
         vertical-align: top;
+        border-radius: 50%;
+        background-image: url(send-button.png);
+        background-repeat: no-repeat;
+        background-position: left;
+        /*! padding-left: 30px; */
+        background-size: 30px;
+        padding: px;
     }
+
 </style>
 
 </head>
@@ -145,13 +161,13 @@
     <div id="maincontainer">
         <ul id="topbar">
             <li id="topbartitle">
-                <a>Blockchat</a>
+                <a href="index.html">Blockchat</a>
             </li>
             <li id="topbarlink">
                     <a href="profilepage.html">Username</a>
             </li>
             <li id="topbarlink">
-                    <a>About Us</a>
+                    <a href="aboutus.html">About Us</a>
             </li>
             <li id="topbarlink">
                     <a class="active" href="chatpage.html">Chat</a>
@@ -162,25 +178,25 @@
         </ul>
 
 
-        <div id="main">
+        <div id="main" style="margin-top: 35px;">
             <div class="column left">
                 <button onclick="addchat()" value="AddChat">Add Chat</button>
                 <div class="chat">
-                    <img class="profpic" src="person.png" />
+                    <img class="profpic" src="chatpage_files/person.png">
                     <div class="personnamerecent">
                         <p class="person name">Person 1</p>
                         <p class="person recentmessage">Hello!</p>
                     </div>
                 </div>
                 <div class="chat">
-                    <img class="profpic" src="person.png" />
+                    <img class="profpic" src="chatpage_files/person.png">
                     <div class="personnamerecent">
                         <p class="person name">Person 2</p>
                         <p class="person recentmessage">How are you?</p>
                     </div>
                 </div>
                 <div class="chat">
-                        <img class="profpic" src="person.png" />
+                        <img class="profpic" src="chatpage_files/person.png">
                         <div class="personnamerecent">
                             <p class="person name">Person 3</p>
                             <p class="person recentmessage">Hmmmmmmmmmmmmmmmmm</p>
@@ -189,22 +205,28 @@
             </div>
             <div class="column right">
                 <div id="chattop">
-                    <img id="profpic" src="person.png" />
+                    <img id="profpic" src="chatpage_files/person.png">
                     <p id="personname">Person 2</p>
 
                 </div>
                 <div id="chatmessages">
                     <div class="message received">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus fuga vero cumque ducimus architecto obcaecati enim accusamus cum, provident dignissimos dolorum eum tempore aliquam nisi aspernatur adipisci magni modi animi?
+                        Lorem ipsum, dolor sit amet consectetur 
+adipisicing elit. Necessitatibus fuga vero cumque ducimus architecto 
+obcaecati enim accusamus cum, provident dignissimos dolorum eum tempore 
+aliquam nisi aspernatur adipisci magni modi animi?
                     </div>
                     <div class="message sent">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur officia quaerat libero voluptates ipsam sed quo id, eaque repellat iure provident quibusdam rerum aliquid. Accusamus eveniet corrupti sint minus in?
+                        Lorem ipsum dolor sit amet consectetur 
+adipisicing elit. Consequatur officia quaerat libero voluptates ipsam 
+sed quo id, eaque repellat iure provident quibusdam rerum aliquid. 
+Accusamus eveniet corrupti sint minus in?
                     </div>
                 </div>
             
                 <form id="messageinput" method="POST" onsubmit="return addMsg()">
                     <input type="text" id="msginputbox">
-                    <input type="submit" value="Send" id="msgsend">
+                    <input type="submit" value="" id="msgsend">
                 </form>
                 
             </div>
@@ -263,5 +285,6 @@
             return false;
         }
     </script>
-</body>
-</html>
+
+
+</body></html>

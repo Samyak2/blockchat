@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="topbar.css">
+<meta charset="utf-8">
+<style>
+    #main {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        font-size: larger;
+        text-align: center;
+    }
+
+    p {
+        padding: 0 20%;
+    }
+
+    h1, h2 {
+        margin-bottom: 0%;
+    }
+
+    h1 {
+        color: #11016d;
+    }
+
+    h2 {
+        color: #0a0042;
+    }
+</style>
+
+</head>
+<body>
+    <div id="maincontainer">
+        <ul id="topbar">
+            <li id="topbartitle">
+                <a class="active" href="index.html">Blockchat</a>
+            </li>
+            <li id="topbarlink">
+                    <a href="profilepage.html">Username</a>
+            </li>
+            <li id="topbarlink">
+                    <a href="aboutus.html">About Us</a>
+            </li>
+            <li id="topbarlink">
+                    <a href="chatpage.html">Chat</a>
+            </li>
+            <li id="topbarlink">
+                <a>Transfer</a>
+            </li>
+        </ul>
+
+
+        <div id="main" style="margin-top: 35px;">
+            <h1>BlockChat</h1>
+            <p>
+                A different messaging application that uses
+                Blockchain to secure your messages. We use a
+                virtual currency system to transfer messages.
+            </p>
+            <h2>How does it work?</h2>
+            <p>We use Blockchain technology to store and transfer
+                messages. It is completely decentralized, so that your
+                messages are not stored on just one server. Every node
+                has a copy of the blockchain.
+            </p>
+
+            <h2>Does that mean everyone can see my messages?</h2>
+            <p>No, your messages are safely encrypted using
+            cryptography. Only you and the person you are messaging
+            can read them.
+            </p>
+
+            <h2>What are coins?</h2>
+            <p>
+                Coin is a virtual currency that is used by the
+                Blockchain to perform transactions. Every user gets a
+                fixed amount of coins to start with. Coins cannot be
+                bought and can be earned by mining or tranferring. A
+                very minute amount of coins are used to send messages.
+            </p>
+        </div>
+    </div>
+    <script>
+        topbar = document.getElementById("topbar");
+        var contentPlacement = topbar.getBoundingClientRect().top + topbar.offsetHeight;
+        document.getElementById("main").style["margin-top"] = contentPlacement + "px";
+    </script>
+</body></html>
