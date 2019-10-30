@@ -7,7 +7,7 @@ body {
   list-style-type: none;
   margin: 0;
   padding: 0.012em;
-  background-color: #2673ff;
+  background-color: darkblue;
   overflow: hidden;
   position: fixed;
   top: 0;
@@ -26,7 +26,7 @@ body {
   padding: 8px 12px;
   color: #ffff;
   text-align: center;
-  background-color:  #2673ff;
+  background-color: darkblue;
   text-decoration: none;
 }
 
@@ -35,7 +35,7 @@ body {
 }
 
 #topbar li a.active {
-  background-color: #295d7b;
+  background-color: darkblue;
   border-bottom: 1px solid #fff;
 }
 
@@ -101,4 +101,7 @@ div.sent.message {
   display: flex;
   flex: 1 1 auto;
   clear: both;
+}
+a:hover {
+  color: darkgray;
 }
