@@ -3,24 +3,33 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="topbar.css">
 <meta charset="utf-8">
+<title>BlockChat</title>
 <style>
+    html {
+        background: url(about-bg.jpg) no-repeat center center fixed;
+        background-size: cover;
+    }
+
     #main {
         display: flex;
         flex-direction: row;
         flex: 1;
         font-size: larger;
         font-family: "Courier New", Courier, monospace;
+        color: aliceblue;
+        text-shadow: 1px 1px black;
+        background: #00000085;
     }
 
     div.left {
-        flex: 1 0 50%;
+        flex: 1 0 40%;
         /* background-color: hsl(239, 100%, 68%); */
         overflow: auto;
         padding: 20px;
     }
 
     div.right {
-        flex: 1 0 50%;
+        flex: 1 0 40%;
         /* background-color: #ffffff; */
         display: flex;
         flex-flow: column nowrap;
@@ -42,16 +51,16 @@
                 <a href="index.html">Blockchat</a>
             </li>
             <li id="topbarlink">
-                    <a href="profilepage.html">Username</a>
+                <a href="profilepage.html">Username</a>
             </li>
             <li id="topbarlink">
-                    <a class="active" href="aboutus.html">About Us</a>
+                <a class="active" href="aboutus.html">About Us</a>
             </li>
             <li id="topbarlink">
-                    <a href="chatpage.html">Chat</a>
+                <a href="chatpage.html">Chat</a>
             </li>
             <li id="topbarlink">
-                <a>Transfer</a>
+                <a href="transfer.html">Transfer</a>
             </li>
         </ul>
 

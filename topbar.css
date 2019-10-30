@@ -48,61 +48,7 @@ body {
 
 
 
-#chattop {
-  /* border: 1px solid #222222; */
-  margin: 5px 10px;
-  background-color: #d5f2ff;
-  /* overflow: hidden; */
-  /* flex: 0 0 10%; */
-  box-shadow: 7px 8px #2270ff;
-}
 
-#chatmessages {
-  flex: 1 0 10%;
-  margin: 10px;
-  overflow: auto;
-  background-color: #dcedff;
-}
-
-
-
-div.message.received {
-  background-color: lightblue;
-  text-align: left;
-  float: left;
-  box-shadow: 7px 6px blue;
-  border: none;
-  margin: 10px;
-  padding: 11px;
-  border-radius: 0px;
-  max-width: 60%;
-  display: flex;
-  flex: 1 1 auto;
-  clear: both;
-}
-
-div.right {
-  flex: 1 0 70%;
-  background-color: #ffffff;
-  display: flex;
-  flex-flow: column nowrap;
-  overflow: hidden;
-}
-
-
-div.sent.message {
-  background-color: #f7d324;
-  float: right;
-  box-shadow: 6px 6px #e67246;
-  border: none;
-  margin: 10px;
-  padding: 11px;
-  border-radius: 0px;
-  max-width: 60%;
-  display: flex;
-  flex: 1 1 auto;
-  clear: both;
-}
 a:hover {
   color: darkgray;
 }
