@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="topbar.css">
+<meta charset="utf-8">
+<title>BlockChat</title>
+<style>
+    html {
+        background: url(about-bg.jpg) no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    #main {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        font-size: larger;
+        font-family: "Courier New", Courier, monospace;
+        color: aliceblue;
+        text-shadow: 1px 1px black;
+        background: #00000085;
+    }
+
+    div.left {
+        flex: 1 0 40%;
+        /* background-color: hsl(239, 100%, 68%); */
+        overflow: auto;
+        padding: 20px;
+    }
+
+    div.right {
+        flex: 1 0 40%;
+        /* background-color: #ffffff; */
+        display: flex;
+        flex-flow: column nowrap;
+        padding: 20px;
+    }
+
+    div.email {
+        display: flex;
+        padding-bottom: 10px;
+        padding-top: 5px;
+    }
+</style>
+
+</head>
+<body>
+    <div id="maincontainer">
+        <ul id="topbar">
+            <li id="topbartitle">
+                <a href="index.html">Blockchat</a>
+            </li>
+            <li id="topbarlink">
+                <a href="profilepage.html">Username</a>
+            </li>
+            <li id="topbarlink">
+                <a class="active" href="aboutus.html">About Us</a>
+            </li>
+            <li id="topbarlink">
+                <a href="chatpage.html">Chat</a>
+            </li>
+            <li id="topbarlink">
+                <a href="transfer.html">Transfer</a>
+            </li>
+        </ul>
+
+
+        <div id="main" style="margin-top: 35px;">
+            <div class="column left">
+                    <h1>About Blockchat</h1>
+                    <p>
+                        BlockChat is a blockchain based chat
+                        application which keeps your chats secure and
+                        safe. Messages are stored in the form of
+                        blocks in multiple blockchains so that you
+                        never lose your messages.
+                        A virtual currency called Coins are used to
+                        send messages. Coins can be transferred to
+                        other people but cannot be exchanged for real
+                        life currencies. You can earn coins by
+                        helping mine blocks. Miners help the
+                        application run by mining blocks of messages
+                        to be added to the blockchain. Mining is a
+                        resource intensive task that involves
+                        calculating the hash of a block.
+                    </p>
+                </div>
+                <div class="column right">
+                    <h1>Contact Us</h1>
+                    <!-- <p> -->
+                        For support contact us at<br>
+                        <div class="email">
+                            <img src="e-mail.png" height="20px"> &nbsp; blockchatsupport@gmail.com
+                        </div>
+                        <br>
+                        For other purposes contact us at<br>
+                        <div class="email">
+                            <img src="e-mail.png" height="20px"> &nbsp; blockchatqa@gmail.com
+                        </div>
+                    <!-- </p> -->
+                </div>
+        </div>
+    </div>
+    <script>
+        topbar = document.getElementById("topbar");
+        var contentPlacement = topbar.getBoundingClientRect().top + topbar.offsetHeight;
+        document.getElementById("main").style["margin-top"] = contentPlacement + "px";
+    </script>
+</body></html>

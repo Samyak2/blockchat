@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Blockchat Delete Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="topbar.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        function addtransaction(sender, receiver, value, message) {
+            var table_selected = document.getElementById(which);
+            var row = table_selected.insertRow(-1);
+            var data = row.insertCell(-1);
+            data.textContent = sender;
+            var data = row.insertCell(-1);
+            data.textContent = receiver;
+            var data = row.insertCell(-1);
+            data.textContent = value;
+            var data = row.insertCell(-1);
+            data.textContent = message;
+        }
+    </script>
+    <script>
+        function updateprogress(percent) {
+          var progress_bar = document.getElementById("progressbar");
+          progress_bar.style.width = percent + "%";
+          progress_bar.textContent = percent + "%";
+        }
+    </script>
+</head>
+<body>
+  <ul id="topbar">
+          <li id="topbartitle">
+              <a>Blockchat</a>
+          </li>
+          <li id="topbarlink">
+                  <a href="profilepage.html">Username</a>
+          </li>
+          <li id="topbarlink">
+                  <a>About Us</a>
+          </li>
+          <li id="topbarlink">
+                  <a href="chatpage.html">Chat</a>
+          </li>
+          <li id="topbarlink">
+              <a>Transfer</a>
+          </li>
+          <li id="topbarlink">
+                  <a href="miningpage.html">Mining</a>
+          </li>
+          <li id="topbarlink">
+                  <a class="active" href="blockchain.html">Blockchain</a>
+          </li>
+  </ul>
+<div class="container" id="main">
+    <h5 class="text-danger">Delete or Deactivate Account</h5>
+    <form>
+        <div class="mb-4 pl-3">
+            <p>Please tell us why you want to perform this action</p>
+            <input class="form-control w-50" type="text" placeholder="Enter your answer here..." />
+        </div>
+        <div class="row  text-center">
+            <div class="col-md-6">
+                <button class="btn btn-outline-secondary btn-lg mb-1 w-40 p-0">Deactivate Account</button>
+                <p>Doing so will prevent others from sending you messages and you will need to confirm your e-mail to reactivate.</p>
+            </div>
+            <div class="col-md-6">
+                <button class="btn btn-outline-secondary btn-lg text-danger mb-1 w-40 p-0">Delete Account</button>
+                <p class="text-danger">WARNIG! This will all data associated with your account, including coins and messages. This is irreversible.</p>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+        topbar = document.getElementById("topbar");
+        var contentPlacement = topbar.getBoundingClientRect().top + topbar.offsetHeight + 10;
+        document.getElementById("main").style["margin-top"] = contentPlacement + "px";
+</script>
+</body>
+</html>
