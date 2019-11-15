@@ -1,7 +1,38 @@
+<?php
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+
+require_once "dbtest.php";
+$url = SERVER_NAME . 'getCoins';
+$data = array('sender' =>  $_SESSION["username"]);
+
+// use key 'http' even if you send the request to https://...
+$options = array(
+    'http' => array(
+        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+        'method'  => 'POST',
+        'content' => http_build_query($data)
+    )
+);
+$context  = stream_context_create($options);
+$result = file_get_contents($url, false, $context);
+if ($result === FALSE) { /* Handle error */ }
+$coins = json_decode($result);
+// print_r($a);
+// $result = (explode('}',explode(':',$result)[1])[0]);
+// var_dump($result);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="topbar.css">
+<link rel="stylesheet" href="css/topbar.css">
 <meta charset="utf-8"/>
 <style>
 
@@ -105,10 +136,14 @@ html, body {
         border: 1px solid black;
         border-collapse: collapse;
         padding: 10px;
+        /* white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden; */
     }
 
     #keytable th {
         background-color: aliceblue;
+        width: auto;
     }
 
     #keytable td {
@@ -118,8 +153,14 @@ html, body {
     #caption {
         font-size: larger;
     }
-</style>
 
+    .key {
+        /* text-overflow: ellipsis; */
+        overflow: auto;
+        /* white-space: nowrap; */
+    }
+</style>
+<link rel="stylesheet" href="css/username_dropdown.css">
 <script>
     var pubkey = "abc";
     var prikey = "def";
@@ -130,19 +171,22 @@ html, body {
     <div id="maincontainer">
         <ul id="topbar">
             <li id="topbartitle">
-                <a href="index.html">Blockchat</a>
+                <a href="index.php">Blockchat</a>
+            </li>
+            <li id="topbarlink" class="dropbtn dropdown">
+                <a class="active" href="profilepage.php" id="username_topbar"><?php echo $_SESSION["username"]; ?></a>
+                <div class="dropdown-content">
+                        <a href="logout.php" style="text-align: left;">Logout</a>
+                </div>
             </li>
             <li id="topbarlink">
-                <a class="active" href="profilepage.html">Username</a>
+                <a href="aboutus.php">About Us</a>
             </li>
             <li id="topbarlink">
-                <a href="aboutus.html">About Us</a>
+                <a href="chatpage.php">Chat</a>
             </li>
             <li id="topbarlink">
-                <a href="chatpage.html">Chat</a>
-            </li>
-            <li id="topbarlink">
-                <a href="transfer.html">Transfer</a>
+                <a href="transfer.php">Transfer</a>
             </li>
         </ul>
 
@@ -151,22 +195,22 @@ html, body {
                 <div id="profileinfo">
                     <div>
                         
-                        <img id="profpic" src="person.png" />
+                        <img id="profpic" src="images/person.png" />
                         
                         <div id="namecoins">
                             <div id="username">
-                                Username
+                                <?php echo $_SESSION["username"]; ?>
                             </div>
                             <div id="coins">
-                                Coins: <span id="numcoins">3.45</span>
+                                Coins: <span id="numcoins"><?php echo $coins; ?></span>
                             </div>
                         </div>
                     </div>
-                    <div id="profkeys">
+                    <!-- <div id="profkeys">
                         <h3>Keys</h3> <button id="showkeys" onclick="showkeys()">Show Keys</button>
                         <p>Public Key: <span id="pubkey">************</span></p>
                         <p>Private Key: <span id="prikey">************</span></p>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div id="accountactions">
@@ -174,7 +218,7 @@ html, body {
 
                     <ul>
                         <li>Want to earn more coins? <a href="miningpage.html">Help by mining!</a></li>
-                        <li><a href="passwordreset.html">Change your password</a></li>
+                        <li><a href="passwordreset.php">Change your password</a></li>
                         <li><a style="color: red;" href="deletepage.html">Delete or Deactivate Account</a></li>
                     </ul>
                 </div>
@@ -182,22 +226,11 @@ html, body {
 
             <div id="chatkeys">
                 <p id="caption">Per chat keys:</p>
-                <table id="keytable">
+                <table id="keytable" style="table-layout: fixed;">
                     <tr>
-                        <th>Name</th>
-                        <th>Key</th>
-                    </tr>
-                    <tr>
-                        <td>Person 1</td>
-                        <td>Hmmmmmmm</td>
-                    </tr>
-                    <tr>
-                        <td>Person 2</td>
-                        <td>qwertyuiop</td>
-                    </tr>
-                    <tr>
-                        <td>Rahul</td>
-                        <td>sdfghjkl</td>
+                        <th style="width: 60px;">Name</th>
+                        <th>Public Key</th>
+                        <th>Private Key</th>
                     </tr>
                 </table>
             </div>
@@ -227,6 +260,11 @@ html, body {
             pubkeyel.textContent = pubkey;
             prikeyel.textContent = prikey;
         }
+    </script>
+
+    <script src="js/getKeys.js"></script>
+    <script>
+        getKeys("<?php echo $_SESSION["username"]; ?>")
     </script>
 </body>
 </html>

@@ -1,0 +1,31 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+  }
+
+.dropdown-content {
+    display: block;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  transition-duration: 2s;
+}
+
+.dropdown:hover .dropdown-content {
+  transform: scaleY(1);
+  /* display: block; */
+  /* transition: display block; */
+  /* transition-duration: 2s; */
+}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}

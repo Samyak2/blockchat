@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html><head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="topbar.css">
+<link rel="stylesheet" href="css/topbar.css">
 <meta charset="utf-8">
 <title>BlockChat</title>
 <style>
     html {
-        background: url(about-bg.jpg) no-repeat center center fixed;
+        background: url(images/about-bg.jpg) no-repeat center center fixed;
         background-size: cover;
     }
 
@@ -42,25 +42,28 @@
         padding-top: 5px;
     }
 </style>
-
+<link rel="stylesheet" href="css/username_dropdown.css">
 </head>
 <body>
     <div id="maincontainer">
         <ul id="topbar">
             <li id="topbartitle">
-                <a href="index.html">Blockchat</a>
+                <a href="index.php">Blockchat</a>
+            </li>
+            <li id="topbarlink" class="dropbtn dropdown">
+                    <a href="profilepage.php" id="username_topbar">Username</a>
+                    <div class="dropdown-content">
+                            <a href="logout.php" style="text-align: left;">Logout</a>
+                    </div>
             </li>
             <li id="topbarlink">
-                <a href="profilepage.html">Username</a>
+                <a class="active" href="aboutus.php">About Us</a>
             </li>
             <li id="topbarlink">
-                <a class="active" href="aboutus.html">About Us</a>
+                <a href="chatpage.php">Chat</a>
             </li>
             <li id="topbarlink">
-                <a href="chatpage.html">Chat</a>
-            </li>
-            <li id="topbarlink">
-                <a href="transfer.html">Transfer</a>
+                <a href="transfer.php">Transfer</a>
             </li>
         </ul>
 
@@ -90,12 +93,12 @@
                     <!-- <p> -->
                         For support contact us at<br>
                         <div class="email">
-                            <img src="e-mail.png" height="20px"> &nbsp; blockchatsupport@gmail.com
+                            <img src="images/e-mail.png" height="20px"> &nbsp; blockchatsupport@gmail.com
                         </div>
                         <br>
                         For other purposes contact us at<br>
                         <div class="email">
-                            <img src="e-mail.png" height="20px"> &nbsp; blockchatqa@gmail.com
+                            <img src="images/e-mail.png" height="20px"> &nbsp; blockchatqa@gmail.com
                         </div>
                     <!-- </p> -->
                 </div>

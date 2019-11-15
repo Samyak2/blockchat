@@ -1,13 +1,24 @@
+<?php
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="topbar.css">
+<link rel="stylesheet" href="css/topbar.css">
 <title>BlockChat</title>
 <meta charset="utf-8">
 <style>
     html {
-        background: url(bg-image.jpg) no-repeat center center fixed;
+        background: url(images/bg-image.jpg) no-repeat center center fixed;
         background-size: cover;
     }
 
@@ -37,25 +48,28 @@
         color: aliceblue;
     }
 </style>
-
+<link rel="stylesheet" href="css/username_dropdown.css">
 </head>
 <body>
     <div id="maincontainer">
         <ul id="topbar">
             <li id="topbartitle">
-                <a class="active" href="index.html">Blockchat</a>
+                <a class="active" href="index.php">Blockchat</a>
             </li>
-            <li id="topbarlink">
-                <a href="profilepage.html">Username</a>
+            <li id="topbarlink" class="dropbtn dropdown">
+                    <a href="profilepage.php" id="username_topbar"><?php echo $_SESSION["username"]; ?></a>
+                    <div class="dropdown-content">
+                            <a href="logout.php" style="text-align: left;">Logout</a>
+                    </div>
             </li>
             <li id="topbarlink">
                 <a href="aboutus.html">About Us</a>
             </li>
             <li id="topbarlink">
-                <a href="chatpage.html">Chat</a>
+                <a href="chatpage.php">Chat</a>
             </li>
             <li id="topbarlink">
-                <a href="transfer.html">Transfer</a>
+                <a href="transfer.php">Transfer</a>
             </li>
         </ul>
 

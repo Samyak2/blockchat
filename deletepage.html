@@ -9,14 +9,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="topbar.css">
+  <link rel="stylesheet" href="username_dropdown.css">
 </head>
     <body>
         <ul id="topbar">
             <li id="topbartitle">
                 <a href="index.html">Blockchat</a>
             </li>
-            <li id="topbarlink">
-                <a class="active" href="profilepage.html">Username</a>
+            <li id="topbarlink" class="dropbtn dropdown">
+                    <a href="profilepage.html" id="username_topbar">Username</a>
+                    <div class="dropdown-content">
+                            <a href="Login_Page/index.html" style="text-align: left;">Logout</a>
+                    </div>
             </li>
             <li id="topbarlink">
                 <a href="aboutus.html">About Us</a>
