@@ -2,9 +2,9 @@
 /* Database credentials. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
 define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'blockchat');
+define('DB_USERNAME', 'id11600689_blockchat');
 define('DB_PASSWORD', 'webwarriors');
-define('DB_NAME', 'blockchat');
+define('DB_NAME', 'id11600689_blockchat');
  
 /* Attempt to connect to MySQL database */
 $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);

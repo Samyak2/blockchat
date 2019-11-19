@@ -10,7 +10,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if(empty($sender_err) && empty($receiver_err)){
         // Prepare a select statement
-        $sql = "SELECT sender, receiver, pubkey, prikey FROM blockchat.keys WHERE (sender = ? AND receiver = ?) OR (sender = ? AND receiver = ?)";
+        $sql = "SELECT sender, receiver, pubkey, prikey FROM " . DB_NAME . ".keys WHERE (sender = ? AND receiver = ?) OR (sender = ? AND receiver = ?)";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters

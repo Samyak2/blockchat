@@ -133,22 +133,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	<title>Blockchat Signup</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="Signup_Page/images/icons/favicon.ico"/>
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="Signup_Page/vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="Signup_Page/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="Signup_Page/vendor/animate/animate.css">
-<!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="Signup_Page/vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="Signup_Page/vendor/select2/select2.min.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="Signup_Page/css/util.css">
 	<link rel="stylesheet" type="text/css" href="Signup_Page/css/main.css">
-<!--===============================================================================================-->
 </head>
 <body>
 	
@@ -167,9 +159,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					<div class="wrap-input100 validate-input <?php echo (!empty($username_err)) ? 'alert-validate' : ''; ?>" data-validate = "<?php echo (!empty($username_err)) ? $username_err : 'Valid username is required';?>">
 							<input class="input100" type="text" name="username" placeholder="Username">
 							<span class="focus-input100"></span>
-							<!-- <span class="symbol-input100"> -->
-								<!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
-							<!-- </span> -->
 					</div>
 
 					<div class="wrap-input100 validate-input <?php echo (!empty($email_err)) ? 'alert-validate' : ''; ?>" data-validate = "<?php echo (!empty($email_err)) ? $email_err : 'Valid email is required: ex@abc.xyz';?>">
@@ -202,15 +191,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 						</button>
 					</div>
 
-					<!-- <div class="text-center p-t-12">
-						<span class="txt1">
-							Forgot
-						</span>
-						<a class="txt2" href="#">
-							Username / Password?
-						</a>
-					</div> -->
-
 					<div class="text-center p-t-136">
 						<a class="txt2" href="login.php">
 							Already have an account? Log in.
@@ -225,21 +205,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	
 
 	
-<!--===============================================================================================-->	
 	<script src="Signup_Page/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
 	<script src="Signup_Page/vendor/bootstrap/js/popper.js"></script>
 	<script src="Signup_Page/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
 	<script src="Signup_Page/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
 	<script src="Signup_Page/vendor/tilt/tilt.jquery.min.js"></script>
 	<script >
 		$('.js-tilt').tilt({
 			scale: 1.1
 		})
 	</script>
-<!--===============================================================================================-->
 	<script src="Signup_Page/js/main.js"></script>
 
 </body>

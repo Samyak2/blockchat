@@ -89,19 +89,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <a class="active">Blockchat</a>
             </li>
             <li id="topbarlink" class="dropbtn dropdown">
-                    <a href="profilepage.html" id="username_topbar">Username</a>
+                    <a href="profilepage.php" id="username_topbar">Username</a>
                     <div class="dropdown-content">
-                            <a href="Login_Page/index.html" style="text-align: left;">Logout</a>
+                            <a href="logout.php" style="text-align: left;">Logout</a>
                     </div>
             </li>
             <li id="topbarlink">
                 <a href="aboutus.html">About Us</a>
             </li>
             <li id="topbarlink">
-                <a href="chatpage.html">Chat</a>
+                <a href="chatpage.php">Chat</a>
             </li>
             <li id="topbarlink">
-                <a href="transfer.html">Transfer</a>
+                <a href="transfer.php">Transfer</a>
             </li>
             <!-- <li id="topbarlink">
                     <a href="miningpage.html">Mining</a>

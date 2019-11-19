@@ -5,7 +5,7 @@ function checkIfKeyExists($sender, $receiver) {
     global $link;
     $msg = "";
     $sender2 = $receiver2 = $pubkey2 = $prikey2 = "";
-    $sql = "SELECT sender, receiver, pubkey, prikey FROM blockchat.keys WHERE (sender = ? AND receiver = ?) OR (sender = ? AND receiver = ?)";
+    $sql = "SELECT sender, receiver, pubkey, prikey FROM " . DB_NAME . ".keys WHERE (sender = ? AND receiver = ?) OR (sender = ? AND receiver = ?)";
 
     if($stmt = mysqli_prepare($link, $sql)){
         // Bind variables to the prepared statement as parameters
@@ -52,7 +52,7 @@ function genKeys($sender, $receiver) {
     $sender2 = $receiver2 = $pubkey2 = $prikey2 = "";
 
     $res = checkIfKeyExists($sender, $receiver);
-    if($res != null) {
+    if($res != false) {
         return $res;
     }
 
@@ -77,7 +77,7 @@ function genKeys($sender, $receiver) {
 
     if(empty($sender_err) && empty($receiver_err)){
         // Prepare a select statement
-        $sql = "INSERT INTO blockchat.keys (`sender`, `receiver`, `pubkey`, `prikey`) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO " . DB_NAME . ".keys (`sender`, `receiver`, `pubkey`, `prikey`) VALUES (?, ?, ?, ?)";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters

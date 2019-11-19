@@ -166,27 +166,32 @@ html, body {
     .chat {
     background-color: #b4d6ff;
     overflow: auto;
-    margin: 5px 5px 5px 5px;
-    box-shadow: 3px 3px #038bff;
+    /* margin: 5px 5px 5px 5px;
+    box-shadow: 3px 3px #038bff; */
+    margin: 0px 0px 0px 0px;
+    box-shadow: 1px 1px #000;
     /* transition-duration: 0.6s; */
     cursor: pointer;
-    width: 96%;
+    width: 100%;
     text-align: left;
     padding: 0;
-    border: 0;
+    border: 1px solid gray;
     font-size: large;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     /* display: flex; */
     /* height: 62px; */
     }
 
     .chat:hover {
-        box-shadow: 4px 4px 4px #004b8d;
+        box-shadow: 2px 2px 2px black;
         background-color: #a7cbf7;
     }
 
 
     img.profpic {
-        display: inline-block;
+        /* display: inline-block; */
         /* float: left; */
         vertical-align: middle;
         height: 50px;
@@ -199,11 +204,13 @@ html, body {
 
     div.personnamerecent {
         /* float: left; */
-        display: inline-block;
-        vertical-align: middle;
+        /* display: inline-block; */
+        /* vertical-align: middle; */
         height: 100%;
         max-width: calc(100% - 70px);
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
     }
 
     p.person {
@@ -306,8 +313,8 @@ html, body {
 
     #search {
         padding: 5px;
-        margin: 5px;
-        width: 90%;
+        /* margin: 5px; */
+        width: 100%;
     }
 
 
@@ -356,7 +363,7 @@ html, body {
     <div id="maincontainer">
         <ul id="topbar">
             <li id="topbartitle">
-                <a href="index.html">Blockchat</a>
+                <a href="index.php">Blockchat</a>
             </li>
             <li id="topbarlink" class="dropbtn dropdown">
                     <a href="profilepage.php" id="username_topbar"><?php echo $_SESSION["username"]; ?></a>
@@ -371,7 +378,7 @@ html, body {
                 <a class="active" href="chatpage.php">Chat</a>
             </li>
             <li id="topbarlink">
-                <a href="transfer.html">Transfer</a>
+                <a href="transfer.php">Transfer</a>
             </li>
         </ul>
 
@@ -506,7 +513,7 @@ html, body {
         }
 
         function receiveMsg() {
-            clearInterval(window.receiveInterval);
+            clearTimeout(window.receiveTimeout);
             var receivedMsgs = document.getElementsByClassName("message received");
             var timestamp = 0;
             var receiver = document.getElementById("personname").textContent;
@@ -548,12 +555,12 @@ html, body {
                         allchats[i].getElementsByClassName("person recentmessage")[0].textContent = sliceRecent(chatmessages.lastChild.textContent);
                     }
                 }
-                window.receiveInterval = setInterval(receiveMsg, 1000);
+                window.receiveTimeout = setTimeout(receiveMsg, 1000);
             }
             return false;
         }
-        window.receiveInterval = setInterval(receiveMsg, 1000);
-        clearInterval(window.receiveInterval);
+        window.receiveTimeout = setTimeout(receiveMsg, 1000);
+        clearTimeout(window.receiveTimeout);
         var prikey = "", pubkey = "";
         var chats = {"Person 1": [[1, "Hi"], [2, "Hello"]],
             "Person 2": [[2, "Hello how are you?"], [1, "Hi, I am fine"], [1, "How are you?"]],
@@ -568,7 +575,7 @@ html, body {
             $("#messageinput").animate({ left: '100%'}, 'fast');
             $("#chatmessages").children(".sent").animate({ left: '100%'}, 'fast');
             $("#chatmessages").children(".received").animate({ right: '100%'}, 'fast');
-            clearInterval(window.receiveInterval);
+            clearTimeout(window.receiveTimeout);
             if(!document.getElementById("chattop") || !document.getElementById("chatmessages") || !document.getElementById("messageinput")) {
                 document.getElementById("rightcolumn").innerHTML = `
                 <div id="chattop">
@@ -606,7 +613,7 @@ html, body {
             httpRequest.send();
 
             function callback(data){
-                // console.log(data)
+                console.log(data);
                 d = JSON.parse(data);
                 messages = d["messages"];
                 window.prikey = d["prikey"];
@@ -638,7 +645,7 @@ html, body {
                 // $(document).on('change','#myid', function(){
                 $("#chatmessages").children(".sent").animate({ left: '0'}, 'slow');
                 $("#chatmessages").children(".received").animate({ right: '0'}, 'slow');
-                window.receiveInterval = setInterval(receiveMsg, 1000);
+                window.receiveTimeout = setTimeout(receiveMsg, 1000);
             }
         }
 
